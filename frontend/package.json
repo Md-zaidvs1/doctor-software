@@ -1,0 +1,14 @@
+{
+  "name": "plant2tree-doctor",
+  "productName": "Plant2Tree Doctor Software",
+  "version": "1.0.0",
+  "description": "Clinic Management System",
+  "main": "main.js",
+  "appId": "com.plant2tree.doctor",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^30.0.0"
+  }
+}

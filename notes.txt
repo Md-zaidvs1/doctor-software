@@ -1,0 +1,27 @@
+https://gemini.google.com/app/39e15f0009c5f1d5?hl=en-IN
+
+gemini
+
+Master plan link : https://claude.ai/share/9b701276-772e-4c81-9058-84969f1b2138
+
+
+🔑 Session Authorization Keys
+Email Address / ID *: admin@apexdental.com
+
+Access Password *: SecurePassword123
+
+
+💉 Action Item: Submit the EHR Entry
+Fill out the form fields with the following test information:
+
+Target Patient *: Select Rahul Sharma [PAT-2026-0001] from the dropdown menu.
+
+Primary Diagnosis *: Deep occlusal caries on tooth #36
+
+Clinical Treatment Notes / Procedures *: Root Canal Treatment (RCT) - Phase 1 Access Cavity Preparation & Pulpectomy done.
+
+Prescription Medication Matrix (Optional): Amoxicillin 500mg (TID x 5 days), Paracetamol 650mg (PRN for pain).
+
+Treatment Cost (INR) *: 3500
+
+Click Commit Chart Entry.
