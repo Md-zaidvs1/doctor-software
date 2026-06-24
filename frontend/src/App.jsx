@@ -1,37 +1,37 @@
-import React, { useState } from 'react';
-import Login from './pages/Login';
-import LicenseActivation from './pages/LicenseActivation';
-import DashboardLayout from './components/dashboard/DashboardLayout';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Patients from "./pages/Patients";
+import BillingManagement from "./pages/BillingManagement";
+import Reports from "./pages/Reports";
+import OnboardingSetup from "./pages/OnboardingSetup";
+import PatientHistoryView from "./pages/PatientHistoryView";
+import Plant2TreePrivateAdmin from "./pages/Plant2TreePrivateAdmin";
+import { useAuth } from "./context/AuthContext";
 
-const App = () => {
-  const [currentView, setCurrentView] = useState(() => {
-    const savedKey = localStorage.getItem('p2t_license_key');
-    return savedKey ? 'login' : 'activation';
-  });
-
-  const handleActivationSuccess = () => {
-    setCurrentView('login');
-  };
-
-  const handleLoginSuccess = () => {
-    setCurrentView('dashboard');
-  };
+export default function App() {
+  const { userRole } = useAuth();
 
   return (
-    <div className="w-full h-screen bg-slate-950 text-slate-100 font-sans select-none overflow-hidden">
-      {currentView === 'activation' && (
-        <LicenseActivation onActivationSuccess={handleActivationSuccess} />
-      )}
-      
-      {currentView === 'login' && (
-        <Login onLoginSuccess={handleLoginSuccess} />
-      )}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/patients" element={<Patients />} />
+        <Route path="/billing" element={<BillingManagement />} />
+        <Route path="/reports" element={<Reports />} />
 
-      {currentView === 'dashboard' && (
-        <DashboardLayout />
-      )}
-    </div>
+        {/* New Routes */}
+        <Route path="/onboarding" element={<OnboardingSetup />} />
+        <Route path="/patient-history" element={<PatientHistoryView />} />
+        <Route
+          path="/admin/plant2tree"
+          element={
+            (userRole === "SUPER_ADMIN" || userRole === "DEVELOPER")
+              ? <Plant2TreePrivateAdmin />
+              : <Navigate to="/" />
+          }
+        />
+      </Routes>
+    </Router>
   );
-};
-
-export default App;
+}
